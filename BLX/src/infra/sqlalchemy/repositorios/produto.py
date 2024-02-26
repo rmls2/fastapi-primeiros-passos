@@ -2,6 +2,8 @@ from sqlalchemy.orm import Session
 from src.schemas import schemas
 from src.infra.sqlalchemy.models import models
 
+""" esse script sera interface que vai conversar com o banco de dados da aplicação """
+
 class RepositorioProduto():
 
     def __init__(self, db: Session) -> None:
@@ -21,7 +23,7 @@ class RepositorioProduto():
         return db_produto
 
     def listar(self):
-        produtos = self.db.query(models.Produto).all()
+        produtos = self.db.query(models.Produto).all() #fazendo uma consulta a tabela produto
         return produtos
     
     def obter(self):

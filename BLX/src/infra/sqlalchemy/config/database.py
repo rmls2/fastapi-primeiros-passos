@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./app_blx.db"
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
+# SQLALCHEMY_DATABASE_URL = "postgresql://postgres:Unic0rn1o#@local/db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -17,8 +17,8 @@ def criar_bd():
 
 # como vamos disponibilizar conexões com a aplicação principal
     
-def get_db():
-    db = SessionLocal
+def get_bd():
+    db = SessionLocal()
     try:
         yield db
     finally:
